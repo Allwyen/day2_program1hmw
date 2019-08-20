@@ -17,8 +17,14 @@
             <a class="nav-link" href="/">Home</a>
             </li>
             <li class="nav-item">
+                    <a class="nav-link" href="/login">SignIn</a>
+                    </li>
+            <li class="nav-item">
             <a class="nav-link" href="/register">SignUp</a>
             </li>
+            <li class="nav-item">
+                    <a class="nav-link" href="/view">View</a>
+                    </li>
         </ul>
     </nav>
 
@@ -26,14 +32,14 @@
         <div class="row justify-content-md-center">
             <div class="col col-12 col-md-4"></div>
             <div class="col col-12 col-md-4 border border-secondary rounded p-5">
-                <form action="/readlogin" method="POST">
+                <form action="/employeelogin" method="POST">
                     <div class="form-group">
                         <label>Username</label>
-                        <input type="text" class="form-control" id="" name="lname" aria-describedby="usernameHelp" placeholder="Enter username">
+                        <input type="text" class="form-control" id="" name="euname" aria-describedby="usernameHelp" placeholder="Enter username">
                     </div>
                     <div class="form-group">
                         <label>Password</label>
-                        <input type="password" class="form-control" id="" name="lpass" placeholder="Password">
+                        <input type="password" class="form-control" id="" name="epass" placeholder="Password">
                     </div>
                     <button type="submit" class="btn btn-primary">Login</button>
                 </form>
