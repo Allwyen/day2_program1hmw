@@ -12,7 +12,7 @@ app.use(Express.static(__dirname+"/public"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 
-Mongoose.connect("mongodb://localhost:27017/employeedb");
+Mongoose.connect("mongodb+srv://mongodb:mongodb@mycluster-ucvz5.mongodb.net/employeedb?retryWrites=true&w=majority");
 
 const EmployeeModel= Mongoose.model("eregister",{
     ename:String,
