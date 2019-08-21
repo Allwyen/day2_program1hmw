@@ -94,13 +94,13 @@ app.post('/employeelogin',(req,res)=>{
     request(APIurl+"/?euname="+item1+"&&epass="+item2,(error,response,body)=>{
         var data = JSON.parse(body);
 
-        if(item1==data.euname && item2 == data.epass)
+        if(data.euname==item1 && data.epass==item2)
         {
-            res.send("<script>alert(data.euname)</script><script>alert('Login Successfull')</script><script>window.location.href='/login'</script>");
+            res.send("<script>alert('Login Successfull')</script><script>window.location.href='/login'</script>");
         }
         else
         {
-            res.send("<script>alert(data.euname)</script><script>alert('Login UnSuccessfull')</script><script>window.location.href='/login'</script>");
+            res.send("<script>alert('Login UnSuccessfull')</script><script>window.location.href='/login'</script>");
         }
     });
 });
