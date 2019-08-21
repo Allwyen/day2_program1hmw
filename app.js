@@ -96,11 +96,11 @@ app.post('/employeelogin',(req,res)=>{
 
         if(item1==data.euname && item2 == data.epass)
         {
-            res.send("<script>Login successfull</script>");
+            res.send("<script>alert('Login Successfull')</script><script>window.location.href='/login'</script>");
         }
         else
         {
-            res.send("<script>Login Unsuccessfull</script>");
+            res.send("<script>alert('Login UnSuccessfull')</script><script>window.location.href='/login'</script>");
         }
     });
 });
