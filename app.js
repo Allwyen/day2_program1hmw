@@ -101,7 +101,7 @@ app.post('/employeelogin',(req,res)=>{
         }
         else
         {
-            res.send("<script>alert('Login UnSuccessfull')</script><script>window.location.href='/login'</script>");
+            res.send("<script>alert('Login unSuccessfull')</script><script>window.location.href='/login'</script>");
         }
     });
 });
