@@ -85,7 +85,7 @@ app.get('/loginAPI',(req,res)=>{
     })
 })
 
-const APIurl = "https://thebookshlf2.herokuapp.com/loginAPI"
+const APIurl = "http://thebookshlf2.herokuapp.com/loginAPI"
 
 app.post('/employeelogin',(req,res)=>{
     var item1 = req.body.euname;
@@ -93,16 +93,22 @@ app.post('/employeelogin',(req,res)=>{
 
     request(APIurl+"/?euname="+item1+"&&epass="+item2,(error,response,body)=>{
         var data = JSON.parse(body);
-        if(data==null){
-            res.send("<script>alert('Login unSuccessfull')</script><script>window.location.href='/login'</script>");
 
-        }
-        else{
+
+        console.log(data);
+        if(data.length>0){
+
             if(item1==data[0].euname && item2==data[0].epass)
             {
                 //res.send(data.euname);
                 res.send("<script>alert('Login Successfull')</script><script>window.location.href='/login'</script>");
             }
+
+
+        }
+        else{
+            res.send("<script>alert('Login unSuccessfull')</script><script>window.location.href='/login'</script>");
+            
         }
 
 
@@ -124,11 +130,18 @@ app.get('/employeeall',(req,res)=>{
     });
 });
 
-const APIurl2 = "https://thebookshlf2.herokuapp.com/employeeall";
+const APIurl2 = "http://thebookshlf2.herokuapp.com/employeeall";
 
 app.get('/view',(req,res)=>{
 
     request(APIurl2,(error,response,body)=>{
+
+if(error)
+{
+    throw error;
+    console.log("Error ::;;;;; "+error);
+}
+
         var data = JSON.parse(body);
         res.render('view',{data:data});
     });
