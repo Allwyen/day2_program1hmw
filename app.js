@@ -92,9 +92,9 @@ app.post('/employeelogin',(req,res)=>{
     var item2 = req.body.epass;
 
     request(APIurl+"/?euname="+item1+"&&epass="+item2,(error,response,body)=>{
-        //var data = JSON.parse(body);
+        var data = JSON.parse(body);
 
-        if(req.body.euname===item1 && req.body.epass===item2)
+        if(item1==data.euname && item2==data.epass)
         {
             res.send("<script>alert('Login Successfull')</script><script>window.location.href='/login'</script>");
         }
