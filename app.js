@@ -85,7 +85,7 @@ app.get('/loginAPI',(req,res)=>{
     })
 })
 
-const APIurl = "http://localhost:3456/loginAPI"
+const APIurl = "https://thebookshlf2.herokuapp.com/loginAPI"
 
 app.post('/employeelogin',(req,res)=>{
     var item1 = req.body.euname;
@@ -93,11 +93,16 @@ app.post('/employeelogin',(req,res)=>{
 
     request(APIurl+"/?euname="+item1+"&&epass="+item2,(error,response,body)=>{
         var data = JSON.parse(body);
-        if(!data)
+
+        if(item1==data.euname && item2 == data.epass)
         {
-            res.send("<script>Login Unsuccessfull</script>")
+            res.send("<script>Login successfull</script>");
         }
-    })
+        else
+        {
+            res.send("<script>Login Unsuccessfull</script>");
+        }
+    });
 });
 
 app.get('/employeeall',(req,res)=>{
@@ -115,7 +120,7 @@ app.get('/employeeall',(req,res)=>{
     });
 });
 
-const APIurl2 = "http://localhost:3456/employeeall";
+const APIurl2 = "https://thebookshlf2.herokuapp.com/employeeall";
 
 app.get('/view',(req,res)=>{
 
